@@ -1,0 +1,57 @@
+\section{Agent: FSM and Evolutionary Computation}
+\label{sec:GA}
+
+The first agent (henceforth GA) was submitted to the first part of the competition, and consists of three parts:
+
+\begin{enumerate}
+\item Three pre-implemented strategies for the agent.
+\item A state machine that transitions between pre-implemented strategies based
+	on game state.
+\item A genetic algorithm that determines threshold values for the transitions
+	in the state machine.
+\end{enumerate}
+
+The GA agent hence has two "phases". First; a learning phase where the genetic
+algorithm finds good parameters for the state transitions. This happens before
+the game is played, and is not part of the agents actual behaviour.
+
+The second phase is the actual play, where a strategy is determined by the state
+machine -- based on the parameters found by the genetic algorithm -- and played out.
+\subsection{The pre-implemented strategies}
+The three pre-implemented strategies are as follows:
+
+ \texttt{FIND\_PILL} strategy, in which the agent determines the location of the
+nearest pill in the maze, and follows the shortest path to it.
+
+A \texttt{FLEE} strategy, in which the shortest-path lengths between the agent
+and all potentially threatening ghosts\footnotemark\ are determined.
+Potentially threatening ghosts are considered \textit{actual} threats if they
+are less than a certain distance from the agent. This distance threshold is
+determined by the genetic algorithm. The agent makes a move away from all
+threatening ghosts if possible, otherwise the agent makes a random valid move.
+
+A \texttt{HUNT\_GHOST} strategy, in which the agent determines the location of
+the closest edible ghost (again, by shortest-path length), and moves towards
+that position.
+
+\textbf{TODO:} describe genetic algorithm
+\textbf{TODO:} remaining sections for GA
+
+\footnotetext{A ghost is considered a potential threat if it is not
+blue, and is not inside the ghost lair.}
+
+\subsection{Description of Approach (e.g. input, output, action, state space,
+representation)}
+
+\subsection{Algorithm Parameters:}
+
+\subsection{Which parameters needed to be adjusted (e.g. ANN learning rate),
+which were picked by default (e.g. connection weight interval) and why?}
+
+\subsection{What was the experiment followed to adjust those parameters of the
+algorithm.}
+
+\subsection{Performance measure of the algorithm}
+
+\subsection{Experiments (My player against the provided ﬁxed-players)}
+Conclusions (Why did it work? Why it didn't work? If it didn't work as expected what could you suggest that it has to be changed for the algorithm to work and why didn't you try it?)

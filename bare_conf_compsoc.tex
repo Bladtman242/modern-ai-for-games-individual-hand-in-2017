@@ -1,0 +1,57 @@
+\documentclass[conference,compsoc]{IEEEtran}
+\ifCLASSOPTIONcompsoc
+  % IEEE Computer Society needs nocompress option
+  % requires cite.sty v4.0 or later (November 2003)
+  \usepackage[nocompress]{cite}
+\else
+  % normal IEEE
+  \usepackage{cite}
+\fi
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\begin{document}
+\title{Bare Demo of IEEEtran.cls for Computer Society Conferences}
+\author{\IEEEauthorblockN{Sigurt Bladt Dinesen}
+\IEEEauthorblockA{IT University of Copenhagen\\
+sidi@itu.dk}
+}
+\maketitle
+\IEEEpeerreviewmaketitle
+
+\input{introduction.tex}
+
+\input{evoalgo.tex}
+
+\input{qlearning.tex}
+
+\input{mcts.tex}
+
+\section{Discussion: (Comparative analysis of all approaches presented (Which
+approach worked best? Why? Can you get better than that? How? What are your ﬁnal
+conclusions?)}
+
+\begin{thebibliography}{1}
+\bibitem{IEEEhowto:kopka}
+H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+\end{thebibliography}
+
+\end{document}
