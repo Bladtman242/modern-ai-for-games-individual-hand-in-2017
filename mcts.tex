@@ -1,18 +1,32 @@
-\section{Then, for each of the 3 approaches:}
+\section{Agent: Monte Carlo Tree Search}
 \label{sec:mcts}
 
-\subsection{Description of Approach (e.g. input, output, action, state space,
-representation)}
+This agent uses monte carlo tree seach to choose its actions. It uses the
+actual \textit{Game} class as state representation, and is hence not as
+susceptible to issues arising from an incomplete state definition as the other
+agents. However, its foresight is noticeably limited by the search-depth it can
+achieve within the allocated timeslot.
 
-\subsection{Algorithm Parameters:}
+The agent receives a complete description of the state, and produces a single
+action as output. Although the state description is complete, the search space
+is artificially limited, in order to decrease the space size. The agent will
+expand nodes in the tree, by adding child-nodes consisting if
+\textit{interesting} neighbours. This idea comes from Tom Pepel's
+paper\cite{tompepels}. From the agents position, a depth-first-search is
+performed through the maze, looking for the first interesting position
+encountered on any path. A position in the maze is considered interesting if;
+\begin{itemize}
+	\item it is a junction (a node with 3 or more neighbours), or
+	\item it is a turn (a node that cannot fit on a line with all its neighbours), or
+	\item it contains a power pill, or
+	\item it contains a ghost
+\end{itemize}
 
-\subsection{Which parameters needed to be adjusted (e.g. ANN learning rate),
-which were picked by default (e.g. connection weight interval) and why?}
+Including ghost positions as separate states makes it easier for the agent to
+hunt them, as eating a ghost is no longer an incident that occurs when moving
+between two positions, but a state in the search space by it self.
 
-\subsection{What was the experiment followed to adjust those parameters of the
-algorithm.}
+This goes for both the tree policy and the default policy, with the only
+difference being that the default policy picks child-states at random, where the
+tree policy uses the UCT formula.
 
-\subsection{Performance measure of the algorithm}
-
-\subsection{Experiments (My player against the provided ﬁxed-players)}
-Conclusions (Why did it work? Why it didn't work? If it didn't work as expected what could you suggest that it has to be changed for the algorithm to work and why didn't you try it?)

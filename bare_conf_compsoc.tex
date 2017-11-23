@@ -1,4 +1,5 @@
 \documentclass[conference,compsoc]{IEEEtran}
+ \usepackage[pdftex]{graphicx}
 \ifCLASSOPTIONcompsoc
   % IEEE Computer Society needs nocompress option
   % requires cite.sty v4.0 or later (November 2003)
@@ -8,7 +9,6 @@
   \usepackage{cite}
 \fi
 \ifCLASSINFOpdf
-  % \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
   % \graphicspath{{../pdf/}{../jpeg/}}
   % and their extensions so you won't have to specify these with
@@ -28,7 +28,7 @@
 \hyphenation{op-tical net-works semi-conduc-tor}
 
 \begin{document}
-\title{Bare Demo of IEEEtran.cls for Computer Society Conferences}
+\title{Modern AI for games individual assignment}
 \author{\IEEEauthorblockN{Sigurt Bladt Dinesen}
 \IEEEauthorblockA{IT University of Copenhagen\\
 sidi@itu.dk}
@@ -44,14 +44,21 @@ sidi@itu.dk}
 
 \input{mcts.tex}
 
-\section{Discussion: (Comparative analysis of all approaches presented (Which
-approach worked best? Why? Can you get better than that? How? What are your ﬁnal
-conclusions?)}
+\section{Implementations}
+The implementations are handed in as three different source directories, one for
+each agent. This is not particularly clean, as share some code (e.g. the pacman
+source code), but it was the easiest, as they share code with modifications.
+
+Each directory contains a \texttt{src} folder, which in turn contains one or
+more folders with the prefix "sidi". These package contain the agents.
+
+The agent implementations are all based on the source code provided to us for
+the weekly labs, I did not write any of it from scratch, but they contain
+extensive modifications.
 
 \begin{thebibliography}{1}
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+\bibitem{tompepels}
+Tom Pepels, \emph{Enhancements for Monte-Carlo Tree Search in Ms Pac-Man} June 19 2012
 \end{thebibliography}
 
 \end{document}
