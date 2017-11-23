@@ -1,0 +1,14 @@
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.0cm,
+                    semithick]
+  \tikzstyle{every state}=[fill=red,draw=none,text=white]
+
+  \node[initial,state] (fp)                    {\texttt{FIND\_PILL}};
+  \node[state]         (f) [above right of=fp] {\texttt{FLEE}};
+  \node[state]         (hg) [below right of=f] {\texttt{HUNT\_GHOST}};
+
+  \path (fp) edge [bend right] node {$T$} (f)
+             edge [bend right] node {$T,H$} (hg)
+        (f) edge [bend right] node {$T$} (fp)
+        (hg) edge node {$T$} (f)
+        (hg) edge node {$T,H$} (fp);
+\end{tikzpicture}

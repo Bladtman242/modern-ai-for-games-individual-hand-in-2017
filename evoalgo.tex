@@ -34,11 +34,21 @@ A \texttt{HUNT\_GHOST} strategy, in which the agent determines the location of
 the closest edible ghost (again, by shortest-path length), and moves towards
 that position.
 
+\begin{figure}[hbtp]
+\input{fsm.tex}
+\caption{Diagram of the state machine used by the GA agent}
+\end{figure}
+
 \subsection{Genetic Algorithm}
 The genetic algorithm simply determines two threshold values: the distance
 between the agent and the closest threatening ghost that will cause a transition
-to the \texttt{FLEE} strategy, and the distance to the closest edible ghost that
-will cause a transition to the \texttt{HUNT\_GHOST} strategy.
+to the \texttt{FLEE} strategy ($T$), and the distance to the closest edible
+ghost that will cause a transition to the \texttt{HUNT\_GHOST} strategy ($H$).
+
+Note that transitions to and from the \texttt{HUNT\_GHOST} state technically
+depend on both parameters, as transitions to \texttt{FLEE} are always considered
+first, the $H$ threshold is only considered if the value for $T$ does not cause
+a transition.
 
 The scores earned by this agent range between 2000 and 9000 points, usually
 lying around 5000 points.
