@@ -1,14 +1,15 @@
-\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.0cm,
-                    semithick]
-  \tikzstyle{every state}=[fill=red,draw=none,text=white]
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4.0cm,
+	semithick]
+	\tikzstyle{every state}=[fill=black]
 
-  \node[initial,state] (fp)                    {\texttt{FIND\_PILL}};
-  \node[state]         (f) [above right of=fp] {\texttt{FLEE}};
-  \node[state]         (hg) [below right of=f] {\texttt{HUNT\_GHOST}};
+  \node[initial above,state,label=left:\texttt{FIND\_PILL}] (fp)                    {};
+	\node[state,label=right:\texttt{FLEE}]         (f) [right of=fp] {};
+	\node[state,label=right:\texttt{HUNT\_GHOST}]         (hg) [below
+	of=fp] {};
 
   \path (fp) edge [bend right] node {$T$} (f)
-             edge [bend right] node {$T,H$} (hg)
+             edge [bend right] node {$H$} (hg)
         (f) edge [bend right] node {$T$} (fp)
         (hg) edge node {$T$} (f)
-        (hg) edge node {$T,H$} (fp);
+	(hg) edge [bend right] node {$H$} (fp);
 \end{tikzpicture}
